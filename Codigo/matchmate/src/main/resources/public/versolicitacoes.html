@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatchMate - Ver Solicitações</title>
+    <link rel="stylesheet" href="versolicitacoes.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Para o ícone do Discord -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="logo" href="./index.html">Matchmate</a>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+               
+                <li><a href="./games.html">Encontrar pessoas para Jogar</a></li>
+                <li><a href="./versolicitacoes.html">Ver seus grupos</a></li>
+                <li><a href="./perfil.html">Meu Perfil</a></li>
+                <button onclick="logout()">Logout</button>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <div class="back-button">
+        <button onclick="history.back()" class="btn btn-dark">← Voltar</button>
+    </div>
+
+    <main>
+        <div class="recomenda">
+            <p>Gerencie as suas solicitações de grupo.</p>
+
+            <h2>Minhas Solicitações Criadas</h2>
+            <div id="minhasSolicitacoes" class="solicitacoes-container"></div>
+
+            <h2>Solicitações que Aceitei</h2>
+            <div id="solicitacoesAceitas" class="solicitacoes-container"></div>
+        </div>
+    </main>
+
+    <script src="versolicitacoes.js"></script>
+    <script>
+        function logout() {
+            fetch('http://localhost:6789/logout', { credentials: 'include' })
+                .then(() => window.location.href = 'login.html');
+        }
+    </script>
+</body>
+</html>

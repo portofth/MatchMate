@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="assets/css/homeperso.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="logo" href="./index.html">Matchmate</a>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="./games.html">Encontrar pessoas para Jogar</a></li>
+                <li><a href="./versolicitacoes.html">Ver seus grupos</a></li>
+                <li><a href="./perfil.html">Meu Perfil</a></li>
+                <button onclick="logout()">Logout</button>
+            </ul>
+        </nav>
+    </header>
+   
+    <!-- Seções de funcionalidades -->
+    <div class="features-container">
+        <div class="feature-box">
+            <h2>Procure Pessoas para Jogar</h2>
+            <img src="assets/images/jogando.jpeg" alt="Pessoas jogando">
+            <p>Encontre jogadores com interesses similares e forme grupos para jogar seus jogos favoritos!</p>
+            <a href="games.html" class="feature-button">Encontrar Jogadores</a>
+        </div>
+        
+        <div class="feature-box">
+            <h2>Meus Grupos</h2>
+            <img src="assets/images/grupo.jpeg" alt="Grupos de jogadores">
+            <p>Gerencie seus grupos e acompanhe suas solicitações de jogo em andamento.</p>
+            <a href="versolicitacoes.html" class="feature-button">Ver Meus Grupos</a>
+        </div>
+    </div>
+
+    <script>
+        // Verificar se o usuário tem sessão válida
+        fetch('http://localhost:6789/validar_sessao', { credentials: 'include' })
+          .then(response => {
+            if (!response.ok) {
+              window.location.href = 'login.html';
+            }
+          });
+    
+        function logout() {
+          fetch('http://localhost:6789/logout', { credentials: 'include' })
+            .then(() => window.location.href = 'login.html');
+        }
+      </script>
+
+    <script src="mobil.js"></script>
+</body>
+</html>

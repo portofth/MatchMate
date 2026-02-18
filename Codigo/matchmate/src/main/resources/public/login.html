@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - MatchMate</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.6rem;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .toggle {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .toggle a {
+      color: #007BFF;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Formulário de Login -->
+    <form id="login-form">
+      <h2>Login</h2>
+      <input name="user" type="text" placeholder="Usuário" required>
+      <input name="senha" type="password" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+      <div class="toggle">
+        Não tem conta? <a onclick="toggleForms()">Cadastrar</a>
+      </div>
+    </form>
+
+    <!-- Formulário de Cadastro -->
+    <form id="register-form" action="http://localhost:6789/jogador" method="post" class="hidden">
+      <h2>Cadastro</h2>
+      <input id="user" type="text" placeholder="Usuário" required>
+      <input id="disc" type="text" placeholder="Discord (Ex: Usuario#1234)" required>
+      <input id="idade" type="number" placeholder="Idade" required>
+      <select id="categoria" required>
+        <option value="">Selecione a categoria</option>
+        <option value="Competitivo">Competitivo</option>
+        <option value="Casual">Casual</option>
+      </select>
+      <input id="senha" type="password" placeholder="Senha" required>
+      <button type="button" id="cadastro" class="btn btn-primary">Cadastrar</button>
+      <div class="toggle">
+        Já tem conta? <a onclick="toggleForms()">Fazer login</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function toggleForms() {
+      const loginForm = document.getElementById('login-form');
+      const registerForm = document.getElementById('register-form');
+      loginForm.classList.toggle('hidden');
+      registerForm.classList.toggle('hidden');
+    }
+    
+      // Novo: interceptar envio do formulário de login
+      document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const data = new URLSearchParams();
+      data.append("user", form.user.value);
+      data.append("senha", form.senha.value);
+
+      fetch('http://localhost:6789/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: data,
+        credentials: 'include'
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = 'index.html';
+        } else {
+          alert('Usuário ou senha inválidos');
+        }
+      })
+      .catch(error => {
+        console.error('Erro na requisição:', error);
+      });
+    });
+
+    const cadastroBtn = document.getElementById('cadastro');
+    cadastroBtn.addEventListener('click', function() {
+
+    const newData = {
+      senha: document.getElementById('senha').value,
+      user: document.getElementById('user').value,
+      disc: document.getElementById('disc').value,
+      idade: document.getElementById('idade').value,
+      categoria: document.getElementById('categoria').value,
+    };
+
+    if (newData.senha === "" || newData.user === "" || newData.disc  === "") {
+      alert("Por favor preencha todos os campos");
+      return;
+    }
+
+    if(newData.idade <= 12){
+      alert("A idade mínima para cadastro é 13 anos");
+      return;
+    }
+
+    // Enviar dados para o backend
+    fetch('http://localhost:6789/jogador', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        credentials: 'include',
+        body: new URLSearchParams({
+          senha: newData.senha,
+          user: newData.user,
+          disc: newData.disc,
+          idade: newData.idade,
+          categoria: newData.categoria,
+        })
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Cadastro realizado com sucesso!');
+            toggleForms();
+        } else {
+            alert('Erro ao se cadastrar. Verifique o servidor.');
+        }
+    })
+    .catch(error => console.error('Erro ao se cadastrar:', error));
+
+    });
+
+  </script>
+
+</body>
+</html>

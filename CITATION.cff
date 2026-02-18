@@ -1,0 +1,33 @@
+cff-version: 1.0.1
+message: Please cite this software using these metadata.
+title: MatchMate
+authors:
+  - family-names: Carvalho
+    given-names: Felipe Gabriel
+  - family-names: Santos Dias
+    given-names: Gustavo Henrique
+  - family-names: Tavares Santos
+    given-names: Filipe Estopa
+  - family-names: Porto de Paula Dias
+    given-names: Fernando Theodoro
+  - family-names: 
+    given-names: 
+  - family-names: 
+    given-names:
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Saldanha Rivero
+    given-names: Ilo Amy
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Soares Gomes
+    given-names: Marco Paulo
+keywords:
+  - Grupo
+  - Jogos
+  - Diversão
+  - Comunicação
+repository-code: https://github.com/ICEI-PUC-Minas-CC-TI/plmg-cc-ti2-2025-1-g08-matchmate.git
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2025-04-03

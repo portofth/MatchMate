@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
+ 
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+html[xmlns] .clearfix {
+  display: block;
+}
+
+* html .clearfix {
+  height: 1%;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+section, article, aside, footer, hgroup {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  background-color: #000000;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background: #000000 !important;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+main {
+    background: #000000 !important;
+    height: auto;
+}
+
+::selection {
+  background: #e75e8d;
+  color: #fff;
+}
+
+.hidden{
+  display: none;
+}
+
+.container {
+    margin-top: 20px;  
+    position: relative;
+    z-index: 1;
+}
+
+.game-details{
+  text-align: center;
+  align-content: center;
+  color: white;
+  padding-top: 30px; 
+  margin-top: 20px;
+}
+
+
+.game-details > h1{
+  font-size: 3.5rem;
+}
+
+.game-details > img{
+  max-width: 100%;
+  width: 50%;
+  border-radius: 10%;
+}
+
+.game-details > p {
+  margin: 0 auto;
+  color: white;
+  text-align:center;
+  max-width: 50%;
+}
+
+.screenshot-img{
+  width: 30%;
+}
+
+@media only screen and (max-width : 900px){
+
+  .screenshot-img{
+    width: 60%;
+  }
+
+}
+
+
+@media only screen and (max-width : 625px){
+  .game-details > h1{
+    font-size: 3rem;
+  }
+
+  .game-details > img{
+    width: 100%;
+    border-radius: 0%;
+  }
+
+  .screenshot-img{
+    width: 90%;
+  }
+
+  .game-details > p {
+    max-width: 95%;
+  }
+
+}
+
+@media only screen and (max-width : 469px){
+  .game-details > h1{
+    font-size: 2rem;
+  }
+
+  .game-details > img{
+    width: 100%;
+    border-radius: 0%;
+  }
+
+  .game-screenshots > img{
+    width: 100%;
+  }
+}
+
+.btn-criar-solicitacao {
+  display: inline-block;  
+  margin-top: 20px;       
+  background-color: #4CAF50;
+  color: white;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.btn-criar-solicitacao:hover {
+  background-color: #45a049; 
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-buscar-grupos {
+  display: inline-block;
+  background-color: #FFD700;
+  color: #000;
+  padding: 0.5em 2em;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-buscar-grupos:hover {
+  background-color: #e6c200;
+}
+
+
+.grupo-lista {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #000000;
+  color: white;
+  border-radius: 8px;
+}
+
+.grupo {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #000000;
+  color: white;
+}
+
+.back-button {
+    margin-top: 80px;  /* Aumentar margem superior */
+    padding: 10px;
+    position: relative;
+    z-index: 1000; /* Garantir que fique acima de outros elementos */
+    background-color: #000000;
+    width: 100%;
+}
+
+.back-button button {
+    background-color: #333;
+    color: white;
+    border: 1px solid #444;
+    padding: 12px 24px;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.back-button button:hover {
+  background-color: #444;
+  border-color: #555;
+}
+
+
