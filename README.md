@@ -1,7 +1,7 @@
 
 # MatchMate
 
-MatchMate é uma plataforma dedicada a conectar jogadores, permitindo a formação de grupos com base no jogo, plataforma e estilo de jogo desejado. Nosso objetivo é facilitar a interação entre jogadores, proporcionando uma experiência mais envolvente e colaborativa.
+MatchMate é uma plataforma dedicada a conectar jogadores, permitindo a formação de grupos com base no jogo, plataforma e estilo de jogo desejado. Nosso objetivo é facilitar a interação entre jogadores, proporcionando uma experiência mais envolvente e colaborativa. O projeto foi desenvolvido no primeiro semestre de 2025 na matéria de Trabalho Interdisciplinar II: Back-End.
 
 ## Alunos integrantes da equipe
 
